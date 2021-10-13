@@ -8,12 +8,13 @@ def read_template(file_name):
             content = file.read()
             return content
     except FileNotFoundError:
-        return 'File Not Found'
+        raise FileNotFoundError
 
 def parse_template(content):
     try:
+        stripped_content=re.sub(r"\{.*?\}","{}",content)
         content_in_curly_braces = re.findall('{(.+?)}',content)
-        return content_in_curly_braces
+        return stripped_content, tuple(content_in_curly_braces)
     except:
         return 'an error occured while tracing the curlies'
 

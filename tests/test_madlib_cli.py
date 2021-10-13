@@ -10,8 +10,8 @@ def test_read_template():
     assert actual == expected
 
 def test_parse_template():
-    actual=parse_template(read_template("assets/dark_and_stormy_night_template.txt"))
-    expected = ['Adjective','Adjective','Noun']
+    a,actual=parse_template(read_template("assets/dark_and_stormy_night_template.txt"))
+    expected = ('Adjective','Adjective','Noun')
     assert actual == expected
 
 def test_merge():
